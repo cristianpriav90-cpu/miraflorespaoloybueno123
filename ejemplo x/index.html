@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#153f32">
+  <title>NUTRIPLAY | Tu menú sorpresa</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- PANTALLA DE REGISTRO -->
+  <section id="registerScreen" class="register-screen">
+    <div class="register-card">
+
+      <div class="brand">
+        <span class="brand-icon">🥑</span>
+        NUTRIPLAY
+      </div>
+
+      <div class="welcome-icon">🥗</div>
+
+      <span class="eyebrow">BIENVENIDO A TU AVENTURA</span>
+      <h1>¡Crea tu cuenta!</h1>
+
+      <p class="subtitle">
+        Juega, descubre y crea tu propio menú saludable.
+        ¡Cada vaso es una sorpresa!
+      </p>
+
+      <form id="registerForm">
+
+        <label for="name">Nombre completo</label>
+        <input
+          id="name"
+          type="text"
+          placeholder="Escribe tu nombre"
+          maxlength="50"
+          required
+        >
+
+        <label for="username">Nombre de usuario</label>
+        <input
+          id="username"
+          type="text"
+          placeholder="Ejemplo: cristian123"
+          maxlength="25"
+          required
+        >
+
+        <label for="password">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="Mínimo 4 caracteres"
+          minlength="4"
+          required
+        >
+
+        <button type="submit" class="main-button">
+          CREAR CUENTA Y COMENZAR
+          <span>→</span>
+        </button>
+
+      </form>
+
+      <p class="small-note">
+        Proyecto educativo de alimentación saludable.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- PANTALLA PRINCIPAL -->
+  <main id="gameScreen" class="hidden">
+
+    <header class="topbar">
+
+      <div class="brand">
+        <span class="brand-icon">🥑</span>
+        NUTRIPLAY
+      </div>
+
+      <div class="user-area">
+        <span class="user-avatar">👤</span>
+        <span id="playerName">Participante</span>
+
+        <button id="logoutButton" class="logout-button">
+          Salir
+        </button>
+      </div>
+
+    </header>
+
+
+    <!-- PORTADA -->
+    <section class="hero">
+
+      <div class="hero-content">
+        <span class="hero-tag">TU RETO SALUDABLE</span>
+
+        <h1>
+          ¡Que la suerte<br>
+          elija tu menú!
+        </h1>
+
+        <p>
+          Tres vasos, tres sorpresas y un menú por descubrir.
+          ¿Cuál elegirás?
+        </p>
+
+        <button id="startButton" class="hero-button">
+          JUGAR AHORA ↓
+        </button>
+      </div>
+
+      <div class="hero-illustration">
+        <span>🥑</span>
+        <span>🍓</span>
+        <span>🍊</span>
+      </div>
+
+    </section>
+
+
+    <!-- PROGRESO -->
+    <section id="progressSection" class="progress-card">
+
+      <div class="progress-heading">
+        <h3>Mi menú del día</h3>
+        <span id="progressText">0 / 3 comidas</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressBar" class="progress-fill"></div>
+      </div>
+
+      <div class="progress-steps">
+        <span id="stepBreakfast" class="step active">🌅 Desayuno</span>
+        <span id="stepLunch" class="step">☀️ Almuerzo</span>
+        <span id="stepDinner" class="step">🌙 Cena</span>
+      </div>
+
+    </section>
+
+
+    <!-- JUEGO DE LOS VASOS -->
+    <section id="gameArea" class="game-card">
+
+      <span id="categoryLabel" class="category-label">
+        PRIMERA ETAPA
+      </span>
+
+      <h2 id="gameTitle">Elige tu desayuno</h2>
+
+      <p id="gameDescription" class="game-description">
+        Primero mezcla los vasos y después selecciona uno.
+      </p>
+
+      <div class="game-instructions">
+        <span class="instruction-number">1</span>
+        <span>Mezcla los vasos</span>
+        <span class="instruction-line"></span>
+        <span class="instruction-number">2</span>
+        <span>Elige tu favorito</span>
+      </div>
+
+
+      <!-- VASOS -->
+      <div id="cupsContainer" class="cups-container">
+
+        <button class="cup-option" data-index="0" disabled>
+          <span class="cup-label">VASO 01</span>
+          <span class="cup-visual">
+            <span class="cup-question">?</span>
+          </span>
+          <span class="cup-caption">Seleccionar</span>
+        </button>
+
+        <button class="cup-option" data-index="1" disabled>
+          <span class="cup-label">VASO 02</span>
+          <span class="cup-visual">
+            <span class="cup-question">?</span>
+          </span>
+          <span class="cup-caption">Seleccionar</span>
+        </button>
+
+        <button class="cup-option" data-index="2" disabled>
+          <span class="cup-label">VASO 03</span>
+          <span class="cup-visual">
+            <span class="cup-question">?</span>
+          </span>
+          <span class="cup-caption">Seleccionar</span>
+        </button>
+
+      </div>
+
+
+      <!-- BOTONES -->
+      <div class="game-controls">
+
+        <button id="shuffleButton" class="shuffle-button">
+          🔀 MEZCLAR VASOS
+        </button>
+
+        <button id="resetButton" class="secondary-button">
+          ↻ REINICIAR
+        </button>
+
+      </div>
+
+      <p id="gameMessage" class="game-message">
+        Pulsa MEZCLAR VASOS para comenzar.
+      </p>
+
+
+      <!-- RESULTADO DE LA ELECCIÓN -->
+      <div id="selectedMeal" class="selected-meal hidden">
+
+        <div id="selectedEmoji" class="selected-emoji">🍎</div>
+
+        <div class="selected-info">
+          <span class="result-tag">¡TU ELECCIÓN SORPRESA!</span>
+          <h3 id="selectedName">Nombre del plato</h3>
+          <p id="selectedDescription"></p>
+          <p id="selectedTip" class="meal-tip"></p>
+        </div>
+
+      </div>
+
+      <button id="nextButton" class="main-button hidden">
+        CONTINUAR →
+      </button>
+
+    </section>
+
+
+    <!-- RESULTADO FINAL -->
+    <section id="finalScreen" class="final-card hidden">
+
+      <div class="trophy">🏆</div>
+
+      <span class="hero-tag">¡RETO COMPLETADO!</span>
+
+      <h2>¡Este es tu menú saludable!</h2>
+
+      <p class="final-subtitle">
+        Felicidades, <strong id="finalPlayerName"></strong>.
+        Has descubierto tus tres comidas.
+      </p>
+
+      <div id="finalMenu" class="final-menu"></div>
+
+      <div class="final-actions">
+        <button id="restartButton" class="main-button">
+          🔄 JUGAR OTRA VEZ
+        </button>
+
+        <button id="backButton" class="secondary-button">
+          VOLVER AL INICIO
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- CRÉDITOS -->
+    <footer>
+      <div class="footer-brand">🥑 NUTRIPLAY</div>
+      <p>Come bien, juega y vive saludable.</p>
+
+      <div class="creators">
+        <span>CREADORES</span>
+        <strong>Paolo Rucoba</strong>
+        <strong>Christian Bueno</strong>
+      </div>
+
+      <p class="copyright">
+        © 2026 NUTRIPLAY · Proyecto educativo
+      </p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
